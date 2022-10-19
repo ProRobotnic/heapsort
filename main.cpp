@@ -1,11 +1,12 @@
 // Heap Sort in C
 
 #include <stdio.h>
+#include <iostream>
 #include <vector>
 #include <string>
 #include <fstream>
 #include <iostream>
-#include <time.h>
+#include <chrono>
 
 using namespace std;
 
@@ -267,12 +268,15 @@ void heapSortd(double arr[], int N) {
 // Driver's code
 int main() {
     double ttime;
-    ofstream outf("output/cpp_handmade/results.txt");
+    ofstream outf;
+    outf.open("C:\\Users\\zer-oRBT\\CLionProjects\\OtherCPP\\results\\cpp_handmade\\results.txt");
     outf << "[";
-    int lenm[] = {1000, 10000, 100000, 1000000, 10000000};
+    int co = 0;
+    int lenm[] = {1000};
+    //int lenm[] = {1000, 10000, 100000, 1000000, 10000000};
     string types[] = {"char", "str", "int", "float", "double"};
     bool tfmas[] = {true, false};
-    for (int len = 0; len < 5; len++) {
+    for (int len = 0; len < 1; len++) {
         for (int type = 0; type < 5; type++) {
             for (int iss = 0; iss < 2; iss++)
                 for (int rep = 0; rep < 2; rep++)
@@ -284,53 +288,58 @@ int main() {
                             char arr[lenm[len]];
                             for (int i = 0; i < lenm[len]; i++)
                                 myfile >> arr[i];
-                            clock_t begin = clock();
+                            auto start = chrono::steady_clock::now();
                             heapSortc(arr, lenm[len]);
-                            clock_t end = clock();
-                            ttime = (end - begin) / CLOCKS_PER_SEC;
+                            auto end = chrono::steady_clock::now();
+                            ttime = (chrono::duration_cast<chrono::microseconds>(end - start).count());
+
                         }
                         if (types[type] == "str") {
                             string arr[lenm[len]];
                             for (int i = 0; i < lenm[len]; i++)
                                 myfile >> arr[i];
-                            clock_t begin = clock();
+                            auto start = chrono::steady_clock::now();
                             heapSorts(arr, lenm[len]);
-                            clock_t end = clock();
-                            ttime = (end - begin) / CLOCKS_PER_SEC;
+                            auto end = chrono::steady_clock::now();
+                            ttime = (chrono::duration_cast<chrono::microseconds>(end - start).count());
+
                         };
                         if (types[type] == "int") {
                             int arr[lenm[len]];
                             for (int i = 0; i < lenm[len]; i++)
                                 myfile >> arr[i];
-                            clock_t begin = clock();
+                            auto start = chrono::steady_clock::now();
                             heapSort(arr, lenm[len]);
-                            clock_t end = clock();
-                            ttime = (end - begin) / CLOCKS_PER_SEC;
+                            auto end = chrono::steady_clock::now();
+                            ttime = (chrono::duration_cast<chrono::microseconds>(end - start).count());
                         };
                         if (types[type] == "float") {
                             float arr[lenm[len]];
                             for (int i = 0; i < lenm[len]; i++)
                                 myfile >> arr[i];
-                            clock_t begin = clock();
+                            auto start = chrono::steady_clock::now();
                             heapSortf(arr, lenm[len]);
-                            clock_t end = clock();
-                            ttime = (end - begin) / CLOCKS_PER_SEC;
+                            auto end = chrono::steady_clock::now();
+                            ttime = (chrono::duration_cast<chrono::microseconds>(end - start).count());
                         };
                         if (types[type] == "double") {
                             double arr[lenm[len]];
                             for (int i = 0; i < lenm[len]; i++)
                                 myfile >> arr[i];
-                            clock_t begin = clock();
+                            auto start = chrono::steady_clock::now();
                             heapSortd(arr, lenm[len]);
-                            clock_t end = clock();
-                            ttime = (end - begin) / CLOCKS_PER_SEC;
+                            auto end = chrono::steady_clock::now();
+                            ttime = (chrono::duration_cast<chrono::microseconds>(end - start).count());
+                            for(int i = 0; i < lenm[len];i++) cout << arr[i];
                         };
                         myfile.close();
                         outf << (", {'time': " + to_string(ttime) + ", 'datatype': " + types[type] + ", repeats" +
-                                to_string(tfmas[rep]) + ", 'almost_sorted': " +
-                                to_string(tfmas[iss]) + ", 'amount': " + to_string(lenm[len])+", 'ok' : True}");
-
+                                 to_string(tfmas[rep]) + ", 'almost_sorted': " +
+                                 to_string(tfmas[iss]) + ", 'amount': " + to_string(lenm[len]) + ", 'ok' : True}");
+                        cout << co;
+                        co++;
                     }
+
         }
     }
     outf << "]";
