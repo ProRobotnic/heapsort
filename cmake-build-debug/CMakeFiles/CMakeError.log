@@ -1,0 +1,16 @@
+Detecting C compiler ABI info failed to compile with the following output:
+Change Dir: D:/heapsort/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Users/ПК/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/ninja/win/ninja.exe cmTC_1a8b6 && ninja: error: 'C:/Users/╨Я╨Ъ/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/win/share/cmake-3.23/Modules/CMakeCCompilerABI.c', needed by 'CMakeFiles/cmTC_1a8b6.dir/CMakeCCompilerABI.c.obj', missing and no known rule to make it
+
+
+
+
+Detecting CXX compiler ABI info failed to compile with the following output:
+Change Dir: D:/heapsort/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Users/ПК/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/ninja/win/ninja.exe cmTC_971fd && ninja: error: 'C:/Users/╨Я╨Ъ/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4345.21/bin/cmake/win/share/cmake-3.23/Modules/CMakeCXXCompilerABI.cpp', needed by 'CMakeFiles/cmTC_971fd.dir/CMakeCXXCompilerABI.cpp.obj', missing and no known rule to make it
+
+
+
+
