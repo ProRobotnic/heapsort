@@ -1,6 +1,6 @@
 // Heap Sort in C
 
-#include <stdio.h>
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,7 +20,7 @@ void swap(int *a, int *b) {
 // To heapify a subtree rooted with node i
 // which is an index in arr[].
 // n is size of heap
-void heapify(int arr[], int N, int i) {
+void heapify(vector <int> arri, long int N, long int i) {
     // Find largest among root, left child and right child
     // Initialize largest as root
     int largest = i;
@@ -29,34 +29,34 @@ void heapify(int arr[], int N, int i) {
     // right = 2*i + 2
     int right = 2 * i + 2;
     // If left child is larger than root
-    if (left < N && arr[left] > arr[largest])
+    if (left < N && arri[left] > arri[largest])
         largest = left;
     // If right child is larger than largest
     // so far
-    if (right < N && arr[right] > arr[largest])
+    if (right < N && arri[right] > arri[largest])
         largest = right;
 
     // Swap and continue heapifying if root is not largest
     // If largest is not root
     if (largest != i) {
-        swap(&arr[i], &arr[largest]);
+        swap(&arri[i], &arri[largest]);
         // Recursively heapify the affected
         // sub-tree
-        heapify(arr, N, largest);
+        heapify(arri, N, largest);
     }
 }
 
 // Main function to do heap sort
-void heapSort(int arr[], int N) {
+void heapSort(vector <int> arri, long int N) {
     // Build max heap
     for (int i = N / 2 - 1; i >= 0; i--)
-        heapify(arr, N, i);
+        heapify(arri, N, i);
     // Heap sort
     for (int i = N - 1; i >= 0; i--) {
-        swap(&arr[0], &arr[i]);
+        swap(&arri[0], &arri[i]);
         // Heapify root element to get highest element at
         // root again
-        heapify(arr, i, 0);
+        heapify(arri, i, 0);
     }
 }
 
@@ -71,7 +71,7 @@ void swapc(char *a, char *b) {
 // To heapify a subtree rooted with node i
 // which is an index in arr[].
 // n is size of heap
-void heapifyc(char arr[], int N, int i) {
+void heapifyc(vector <char> arrc, long int N, long int i) {
     // Find largest among root, left child and right child
     // Initialize largest as root
     int largest = i;
@@ -80,34 +80,34 @@ void heapifyc(char arr[], int N, int i) {
     // right = 2*i + 2
     int right = 2 * i + 2;
     // If left child is larger than root
-    if (left < N && arr[left] > arr[largest])
+    if (left < N && arrc[left] > arrc[largest])
         largest = left;
     // If right child is larger than largest
     // so far
-    if (right < N && arr[right] > arr[largest])
+    if (right < N && arrc[right] > arrc[largest])
         largest = right;
 
     // Swap and continue heapifying if root is not largest
     // If largest is not root
     if (largest != i) {
-        swapc(&arr[i], &arr[largest]);
+        swapc(&arrc[i], &arrc[largest]);
         // Recursively heapify the affected
         // sub-tree
-        heapifyc(arr, N, largest);
+        heapifyc(arrc, N, largest);
     }
 }
 
 // Main function to do heap sort
-void heapSortc(char arr[], int N) {
+void heapSortc(vector <char> arrc, long int N) {
     // Build max heap
     for (int i = N / 2 - 1; i >= 0; i--)
-        heapifyc(arr, N, i);
+        heapifyc(arrc, N, i);
     // Heap sort
     for (int i = N - 1; i >= 0; i--) {
-        swapc(&arr[0], &arr[i]);
+        swapc(&arrc[0], &arrc[i]);
         // Heapify root element to get highest element at
         // root again
-        heapifyc(arr, i, 0);
+        heapifyc(arrc, i, 0);
     }
 }
 
@@ -122,7 +122,7 @@ void swaps(string *a, string *b) {
 // To heapify a subtree rooted with node i
 // which is an index in arr[].
 // n is size of heap
-void heapifys(string arr[], int N, int i) {
+void heapifys(vector <string> arrs, long int N, long int i) {
     // Find largest among root, left child and right child
     // Initialize largest as root
     int largest = i;
@@ -131,34 +131,34 @@ void heapifys(string arr[], int N, int i) {
     // right = 2*i + 2
     int right = 2 * i + 2;
     // If left child is larger than root
-    if (left < N && arr[left] > arr[largest])
+    if (left < N && arrs[left] > arrs[largest])
         largest = left;
     // If right child is larger than largest
     // so far
-    if (right < N && arr[right] > arr[largest])
+    if (right < N && arrs[right] > arrs[largest])
         largest = right;
 
     // Swap and continue heapifying if root is not largest
     // If largest is not root
     if (largest != i) {
-        swaps(&arr[i], &arr[largest]);
+        swaps(&arrs[i], &arrs[largest]);
         // Recursively heapify the affected
         // sub-tree
-        heapifys(arr, N, largest);
+        heapifys(arrs, N, largest);
     }
 }
 
 // Main function to do heap sort
-void heapSorts(string arr[], int N) {
+void heapSorts(vector <string> arrs, long int N) {
     // Build max heap
     for (int i = N / 2 - 1; i >= 0; i--)
-        heapifys(arr, N, i);
+        heapifys(arrs, N, i);
     // Heap sort
     for (int i = N - 1; i >= 0; i--) {
-        swaps(&arr[0], &arr[i]);
+        swaps(&arrs[0], &arrs[i]);
         // Heapify root element to get highest element at
         // root again
-        heapifys(arr, i, 0);
+        heapifys(arrs, i, 0);
     }
 }
 
@@ -173,7 +173,7 @@ void swapf(float *a, float *b) {
 // To heapify a subtree rooted with node i
 // which is an index in arr[].
 // n is size of heap
-void heapifyf(float arr[], int N, int i) {
+void heapifyf(vector <float> arrf, long int N, long int i) {
     // Find largest among root, left child and right child
     // Initialize largest as root
     int largest = i;
@@ -182,34 +182,34 @@ void heapifyf(float arr[], int N, int i) {
     // right = 2*i + 2
     int right = 2 * i + 2;
     // If left child is larger than root
-    if (left < N && arr[left] > arr[largest])
+    if (left < N && arrf[left] > arrf[largest])
         largest = left;
     // If right child is larger than largest
     // so far
-    if (right < N && arr[right] > arr[largest])
+    if (right < N && arrf[right] > arrf[largest])
         largest = right;
 
     // Swap and continue heapifying if root is not largest
     // If largest is not root
     if (largest != i) {
-        swapf(&arr[i], &arr[largest]);
+        swapf(&arrf[i], &arrf[largest]);
         // Recursively heapify the affected
         // sub-tree
-        heapifyf(arr, N, largest);
+        heapifyf(arrf, N, largest);
     }
 }
 
 // Main function to do heap sort
-void heapSortf(float arr[], int N) {
+void heapSortf(vector <float> arrf, long int N) {
     // Build max heap
     for (int i = N / 2 - 1; i >= 0; i--)
-        heapifyf(arr, N, i);
+        heapifyf(arrf, N, i);
     // Heap sort
     for (int i = N - 1; i >= 0; i--) {
-        swapf(&arr[0], &arr[i]);
+        swapf(&arrf[0], &arrf[i]);
         // Heapify root element to get highest element at
         // root again
-        heapifyf(arr, i, 0);
+        heapifyf(arrf, i, 0);
     }
 }
 
@@ -224,7 +224,7 @@ void swapd(double *a, double *b) {
 // To heapify a subtree rooted with node i
 // which is an index in arr[].
 // n is size of heap
-void heapifyd(double arr[], int N, int i) {
+void heapifyd(vector <double> arrd, long int N, long int i) {
     // Find largest among root, left child and right child
     // Initialize largest as root
     int largest = i;
@@ -233,34 +233,34 @@ void heapifyd(double arr[], int N, int i) {
     // right = 2*i + 2
     int right = 2 * i + 2;
     // If left child is larger than root
-    if (left < N && arr[left] > arr[largest])
+    if (left < N && arrd[left] > arrd[largest])
         largest = left;
     // If right child is larger than largest
     // so far
-    if (right < N && arr[right] > arr[largest])
+    if (right < N && arrd[right] > arrd[largest])
         largest = right;
 
     // Swap and continue heapifying if root is not largest
     // If largest is not root
     if (largest != i) {
-        swapd(&arr[i], &arr[largest]);
+        swapd(&arrd[i], &arrd[largest]);
         // Recursively heapify the affected
         // sub-tree
-        heapifyd(arr, N, largest);
+        heapifyd(arrd, N, largest);
     }
 }
 
 // Main function to do heap sort
-void heapSortd(double arr[], int N) {
+void heapSortd(vector <double> arrd, int N) {
     // Build max heap
     for (int i = N / 2 - 1; i >= 0; i--)
-        heapifyd(arr, N, i);
+        heapifyd(arrd, N, i);
     // Heap sort
     for (int i = N - 1; i >= 0; i--) {
-        swapd(&arr[0], &arr[i]);
+        swapd(&arrd[0], &arrd[i]);
         // Heapify root element to get highest element at
         // root again
-        heapifyd(arr, i, 0);
+        heapifyd(arrd, i, 0);
     }
 }
 
@@ -269,73 +269,117 @@ void heapSortd(double arr[], int N) {
 int main() {
     double ttime;
     ofstream outf;
-    outf.open("C:\\Users\\zer-oRBT\\CLionProjects\\OtherCPP\\results\\cpp_handmade\\results.txt");
+    ofstream outf1;
+    vector <string> arrs;
+    vector <char> arrc;
+    vector <int> arri;
+    vector <float> arrf;
+    vector <double> arrd;
+    outf.open("D:\\heapsort\\output\\cpp_handmade\\results.txt");
     outf << "[";
     int co = 0;
-    int lenm[] = {1000};
-    //int lenm[] = {1000, 10000, 100000, 1000000, 10000000};
+    long int lenm[] = {1000, 10000, 100000, 1000000, 10000000};
     string types[] = {"char", "str", "int", "float", "double"};
-    bool tfmas[] = {true, false};
-    for (int len = 0; len < 1; len++) {
+    string tfmas[] = {"True", "False"};
+    for (int len = 0; len < 5; len++) {
         for (int type = 0; type < 5; type++) {
             for (int iss = 0; iss < 2; iss++)
                 for (int rep = 0; rep < 2; rep++)
                     for (int ntest = 0; ntest < 5; ntest++) {
                         ifstream myfile("tests/test_data_" + to_string(ntest) + " amount=" + to_string(lenm[len]) +
-                                        " almost_sorted=" + to_string(tfmas[iss]) + " data_type=" +
-                                        types[type] + " repeats=" + to_string(tfmas[rep]) + ".txt");
+                                        " almost_sorted=" + (tfmas[iss]) + " data_type=" +
+                                        types[type] + " repeats=" + (tfmas[rep]) + ".txt");
                         if (types[type] == "char") {
-                            char arr[lenm[len]];
-                            for (int i = 0; i < lenm[len]; i++)
-                                myfile >> arr[i];
+                            arrc.clear();
+                        	char tc;
+                            for (int i = 0; i < lenm[len]; i++){
+						
+                                myfile >> tc;
+                            	arrc.push_back(tc);	}
                             auto start = chrono::steady_clock::now();
-                            heapSortc(arr, lenm[len]);
+                            heapSortc(arrc, lenm[len]);
                             auto end = chrono::steady_clock::now();
                             ttime = (chrono::duration_cast<chrono::microseconds>(end - start).count());
+                            outf1.open("D:\\heapsort\\output\\cpp_handmade\\test_result_" + to_string(ntest) + " amount=" + to_string(lenm[len]) +
+                                        " almost_sorted=" + (tfmas[iss]) + " data_type=" +
+                                        types[type] + " repeats=" + (tfmas[rep]) + ".txt");
+                            for (int i = 0; i < lenm[len]; i++) outf1 << arrc[i] << " ";
+                            outf1.close();
 
                         }
                         if (types[type] == "str") {
-                            string arr[lenm[len]];
-                            for (int i = 0; i < lenm[len]; i++)
-                                myfile >> arr[i];
+                        	arrs.clear();
+                        	string t;
+                            for (int i = 0; i < lenm[len]; i++){
+						
+                                myfile >> t;
+                            	arrs.push_back(t);	}
                             auto start = chrono::steady_clock::now();
-                            heapSorts(arr, lenm[len]);
+                            heapSorts(arrs, lenm[len]);
                             auto end = chrono::steady_clock::now();
                             ttime = (chrono::duration_cast<chrono::microseconds>(end - start).count());
+                            outf1.open("D:\\heapsort\\output\\cpp_handmade\\test_result_" + to_string(ntest) + " amount=" + to_string(lenm[len]) +
+                                        " almost_sorted=" + (tfmas[iss]) + " data_type=" +
+                                        types[type] + " repeats=" + (tfmas[rep]) + ".txt");
+                            for (int i = 0; i < lenm[len]; i++) outf1 << arrs[i] << " ";
+                            outf1.close();
 
                         };
                         if (types[type] == "int") {
-                            int arr[lenm[len]];
-                            for (int i = 0; i < lenm[len]; i++)
-                                myfile >> arr[i];
+                            arri.clear();
+                        	int ti;
+                            for (int i = 0; i < lenm[len]; i++){
+						
+                                myfile >> ti;
+                            	arri.push_back(ti);	}
                             auto start = chrono::steady_clock::now();
-                            heapSort(arr, lenm[len]);
+                            heapSort(arri, lenm[len]);
                             auto end = chrono::steady_clock::now();
                             ttime = (chrono::duration_cast<chrono::microseconds>(end - start).count());
+                            outf1.open("D:\\heapsort\\output\\cpp_handmade\\test_result_" + to_string(ntest) + " amount=" + to_string(lenm[len]) +
+                                        " almost_sorted=" + (tfmas[iss]) + " data_type=" +
+                                        types[type] + " repeats=" + (tfmas[rep]) + ".txt");
+                            for (int i = 0; i < lenm[len]; i++) outf1 << arri[i] << " ";
+                            outf1.close();
                         };
                         if (types[type] == "float") {
-                            float arr[lenm[len]];
-                            for (int i = 0; i < lenm[len]; i++)
-                                myfile >> arr[i];
+                            arrf.clear();
+                        	float tf;
+                            for (int i = 0; i < lenm[len]; i++){
+						
+                                myfile >> tf;
+                            	arrf.push_back(tf);	}
                             auto start = chrono::steady_clock::now();
-                            heapSortf(arr, lenm[len]);
+                            heapSortf(arrf, lenm[len]);
                             auto end = chrono::steady_clock::now();
                             ttime = (chrono::duration_cast<chrono::microseconds>(end - start).count());
+                            outf1.open("D:\\heapsort\\output\\cpp_handmade\\test_result_" + to_string(ntest) + " amount=" + to_string(lenm[len]) +
+                                        " almost_sorted=" + (tfmas[iss]) + " data_type=" +
+                                        types[type] + " repeats=" + (tfmas[rep]) + ".txt");
+                            for (int i = 0; i < lenm[len]; i++) outf1 << arrf[i] << " ";
+                            outf1.close();
                         };
                         if (types[type] == "double") {
-                            double arr[lenm[len]];
-                            for (int i = 0; i < lenm[len]; i++)
-                                myfile >> arr[i];
+                            arrd.clear();
+                        	double td;
+                            for (int i = 0; i < lenm[len]; i++){
+						
+                                myfile >> td;
+                            	arrd.push_back(td);	}
                             auto start = chrono::steady_clock::now();
-                            heapSortd(arr, lenm[len]);
+                            heapSortd(arrd, lenm[len]);
                             auto end = chrono::steady_clock::now();
                             ttime = (chrono::duration_cast<chrono::microseconds>(end - start).count());
-                            for(int i = 0; i < lenm[len];i++) cout << arr[i];
+                            outf1.open("D:\\heapsort\\output\\cpp_handmade\\test_result_" + to_string(ntest) + " amount=" + to_string(lenm[len]) +
+                                        " almost_sorted=" + (tfmas[iss]) + " data_type=" +
+                                        types[type] + " repeats=" + (tfmas[rep]) + ".txt");
+                            for (int i = 0; i < lenm[len]; i++) outf1 << arrd[i] << " ";
+                            outf1.close();
                         };
                         myfile.close();
-                        outf << (", {'time': " + to_string(ttime) + ", 'datatype': " + types[type] + ", repeats" +
-                                 to_string(tfmas[rep]) + ", 'almost_sorted': " +
-                                 to_string(tfmas[iss]) + ", 'amount': " + to_string(lenm[len]) + ", 'ok' : True}");
+                        outf << (", {'time': " + to_string(ttime) + ", 'datatype': '" + types[type] + "', 'repeats':" +
+                                 (tfmas[rep]) + ", 'almost_sorted': " +
+                                 (tfmas[iss]) + ", 'amount': " + to_string(lenm[len]) + ", 'ok' : True}");
                         cout << co;
                         co++;
                     }

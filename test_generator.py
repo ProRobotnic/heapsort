@@ -61,7 +61,7 @@ def make_test(filename, amount, repeats=False, almost_sorted=False, data_type="i
 make_test("a", 10, data_type="str")
 make_test("a", 10, data_type="char")
 make_test("a", 10, data_type="float")"""
-datatypes = ["char", "str", "int", "float", "double"]
+datatypes = ["char", "string", "int", "float", "double"]
 # Program works v-v-very slow on list_len above 10**6...
 # The code below took about 2 hours and 4 minutes...
 
@@ -86,5 +86,15 @@ def renew_test_data():
                         make_test(
                             f"tests/test_data_{str(Ntest)} amount={str(ll)} almost_sorted={str(is_almost_sorted)} data_type={datatype} repeats={data_is_repeated}.txt ",
                             amount=ll, almost_sorted=is_almost_sorted, data_type=datatype, repeats=data_is_repeated)
+
+for ll in list_len:
+    print(ll)
+    for datatype in datatypes:
+        for is_almost_sorted in [False, True]:
+            for data_is_repeated in [True, False]:
+                for Ntest in range(5):
+                    make_test(
+                        f"tests/test_data_{str(Ntest)} amount={str(ll)} almost_sorted={str(is_almost_sorted)} data_type={datatype} repeats={data_is_repeated}.txt ",
+                        amount=ll, almost_sorted=is_almost_sorted, data_type=datatype, repeats=data_is_repeated)
 
 # Made by zer0rbt, 2022

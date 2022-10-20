@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/OtherCPP.iml" filepath="$PROJECT_DIR$/.idea/OtherCPP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/heapsort.iml" filepath="$PROJECT_DIR$/.idea/heapsort.iml" />
     </modules>
   </component>
 </project>
